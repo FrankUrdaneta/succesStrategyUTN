@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src=" https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
+    <link href="./style/style.css" rel="stylesheet" />
+    <title>MARKETING DIGITAL</title>
+  </head>
+  <body>
+    <div id="inicio">
+        <div class="container-fluid  mt-5" style="background-color: #4e3f8a;">
+            <div class="row">
+              <div class="col-md-6 order-2 order-md-1">
+                <div class="p-5">
+                  <h1 class="text-light">Bienvenidos a Success Strategies</h1>
+                  <p class="text-light">Somos un equipo de expertos en marketing digital con más de 10 años de experiencia ayudando a negocios a crecer y aumentar sus ventas en línea.</p>
+                  <a href="#" class="btn btn-warning mt-4 mb-2" onclick="SEO()">¿Quieres aumentar tu tráfico SEO?</a>
+                </div>
+              </div>
+              <div class="col-md-6 order-1 order-md-2">
+                <img src="./img/seo.jpg" alt="Imagen de marketing" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="container my-5">
+            <h2 class="text-center">¿Cómo podemos ayudarte?</h2>
+            <div class="row justify-content-between">
+              <div class="col-md-4">
+                <div class="card my-3">
+                  <div class="card-body">
+                    <i class="fas fa-chart-line fa-4x text-primary mb-4"></i>
+                    <h5 class="card-title">Análisis de datos</h5>
+                    <p class="card-text">Realizamos un análisis exhaustivo de los datos de tu negocio para identificar oportunidades de crecimiento y mejorar tus resultados en línea.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card my-3">
+                  <div class="card-body">
+                    <i class="fas fa-bullhorn fa-4x text-primary mb-4"></i>
+                    <h5 class="card-title">Publicidad en línea</h5>
+                    <p class="card-text">Creamos y gestionamos campañas publicitarias efectivas en línea para aumentar el tráfico y las ventas de tu sitio web.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card my-3">
+                  <div class="card-body">
+                    <i class="fas fa-globe fa-4x text-primary mb-4"></i>
+                    <h5 class="card-title">Presencia en línea</h5>
+                    <p class="card-text">Nos aseguramos de que tu negocio tenga una sólida presencia en línea a través de una estrategia de marketing digital bien definida y una excelente gestión de redes sociales.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center mt-5" >
+              <div class="col-md-6">
+                <div class="card bg-secondary">
+                  <div class="card-body text-center" style="background-color: #4e3f8a;">
+                    <h5 class="card-title text-white">¿Quieres aumentar tu tráfico SEO?</h5>
+                    <p class="card-text text-white">Contáctanos para obtener una consulta gratuita y descubre cómo podemos ayudarte a mejorar tus resultados en línea.</p>
+                    <a href="#" class="btn btn-primary mt-4 mb-2" data-toggle="modal" data-target="#contactModal">Contáctanos</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+         </div>
+         
+          
+          
+          
+          
+    </div>
+    <div id="main-container" style="display:none">
+        <div id="main" class="container">
+                <div id="salir" class="position-relative">
+                    <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Cerrar" style="margin-top: -3rem;" onclick="salir()"></button>
+              </div>
+          <div class="progress">
+            <div id="progress" class="progress-bar" role="progressbar" style="width: 15%; background: linear-gradient(to bottom right, #fbc20a, #f7941d);" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div id="irIni">
+          <form style="display: grid; justify-items: center;">
+            <h1 id="q1" style="color:#4e3f8a;display: grid; justify-items: center; font-size: 3.5rem;">¿Quieres más tráfico SEO?</h1>
+            <div id="question" class="form-group  mt-3 mb-3 ">
+              <div class="container boton_text">
+                    <label for="url-input" style="color:#4e3f8a">Ingresa la URL de tu sitio web</label>
+                    <input type="text" class="form-control" id="url-input" required>
+                    <button id="prox" type="button" class="btn btn-primary" >Próximo</button>
+                    <div id="main-content" style="display: flex; justify-content: center; align-items: center;">
+                    
+                        <p style="color:#8983b0">Analizamos su sitio web para identificar errores de SEO, oportunidades de palabras clave y competencia.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="question-container"></div>
+          </form>
+        </div>
+        </div>
+    </div>
+      
+    <div id="pagina" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-purple-yellow fixed-top" id="navbar">
+        <div id="texto_nav" style="display: flex;margin-left:3rem;">
+        <a class="navbar-brand" href="#">Success Strategies</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" onclick="inicio()">Inicio</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" onclick="planes()">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="acercade()">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" data-target="#contactModal">Contacto</a>
+            </li>
+          </ul>
+          <div id="weather-icon" style="position: absolute; right: 2rem;color: #fafafa;"></div>
+        </div>
+    </div>
+    </nav>
+    <div id="planes" >
+        <div class="plans-section">
+            <div class="">
+                        <div class="row" style="background-color:#4e3f8a; color:white; padding: 50px 0;">
+                <div class="col-md-12 text-center">
+                    <h2 style="color:#fbc20a;">Descubre nuestros planes de marketing digital</h2>
+                    <p>Elige el plan que mejor se adapte a las necesidades de tu negocio</p>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 style="color:#fbc20a;">Plan Básico</h4>
+                    </div>
+                    <div class="card-body">
+                      <h3>$99/mes</h3>
+                      <ul>
+                        <li><i class="fas fa-check"></i> Anuncios en una red social</li>
+                        <li><i class="fas fa-check"></i> 2 publicaciones semanales</li>
+                        <li><i class="fas fa-check"></i> Reportes mensuales de análisis de datos</li>
+                      </ul>
+                      <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 style="color:#fbc20a;">Plan Intermedio</h4>
+                    </div>
+                    <div class="card-body">
+                      <h3>$299/mes</h3>
+                      <ul>
+                        <li><i class="fas fa-check"></i> Anuncios en dos redes sociales</li>
+                        <li><i class="fas fa-check"></i> 4 publicaciones semanales</li>
+                        <li><i class="fas fa-check"></i> Reportes semanales de análisis de datos</li>
+                        <li><i class="fas fa-check"></i> Administración de campañas publicitarias</li>
+                      </ul>
+                      <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 style="color:#fbc20a;">Plan Premium</h4>
+                    </div>
+                    <div class="card-body">
+                      <h3>$599/mes</h3>
+                      <ul>
+                        <li><i class="fas fa-check"></i> Anuncios en tres redes sociales</li>
+                        <li><i class="fas fa-check"></i> 6 publicaciones semanales</li>
+                        <li><i class="fas fa-check"></i> Reportes diarios de análisis de datos</li>
+                        <li><i class="fas fa-check"></i> Administración avanzada de campañas publicitarias</li>
+                        <li><i class="fas fa-check"></i> Gestión de presencia en línea</li>
+                      </ul>
+                      <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                  <h3 style="color:#fbc20a;">¿Qué dicen nuestros clientes?</h3>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <p>“Con su ayuda, mi negocio ha experimentado un crecimiento significativo en las redes sociales”</p>
+                      <h5>Juan Pérez, dueño de una tienda en línea</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <p>“El equipo de marketing digital es muy profesional y siempre está dispuesto a ayudar”</p>
+                      <h5>María González, gerente de una pequeña empresa</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <p>“Estoy muy contento con los resultados que hemos logrado en términos de ventas y presencia en línea”</p>
+                      <h5>Roberto Sánchez, dueño de una cadena de restaurantes</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                  <h3 style="color:#fbc20a;">Preguntas frecuentes</h3>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <div class="accordion" id="faqAccordion">
+                    <div class="card">
+                      <div class="card-header" id="faqHeading1">
+                        <h5 class="mb-0">
+                          <button class="btn " type="button" data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                            ¿Cuánto tiempo toma ver resultados?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="faqCollapse1" class="collapse show" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+                        <div class="card-body">
+                          Los resultados pueden variar dependiendo del plan que elijas y las necesidades específicas de tu negocio, pero en general, deberías empezar a ver mejoras en unas pocas semanas.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="faqHeading2">
+                        <h5 class="mb-0">
+                          <button class="btn " type="button" data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                            ¿Cómo puedo cancelar mi plan?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+                        <div class="card-body">
+                          Puedes cancelar tu plan en cualquier momento enviándonos un correo electrónico o llamando a nuestro servicio al cliente.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="faqHeading3">
+                        <h5 class="mb-0">
+                          <button class="btn " type="button" data-toggle="collapse" data-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                            ¿Cómo puedo pagar por mi plan?
+                        </button>
+                    </h5>
+                  </div>
+                  <div id="faqCollapse3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+                    <div class="card-body">
+                      Aceptamos pagos con tarjeta de crédito y débito, así como transferencias bancarias y pagos en línea a través de plataformas como PayPal y Stripe.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+    
+    <div id="contact" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center" style="color:#fbc20a;">Contáctanos</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <form action="#" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nombre" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Correo electrónico" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Asunto" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="5" placeholder="Mensaje" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+</div>
+<!-- fin seccion planes -->
+        <div id="plan_7semanas" class="plan_7semanas">
+            
+            <div class="titulo">
+                <h3>En base a sus respuestas sugerimos lo siguiente</h3>
+               <h1 h1 class="text-uppercase mb-4" style="color:#fbc20a"> Plan de acción de 7 semanas</h1>
+            </div>
+            <div class="row d-grid" style="gap:5px; margin: 1rem;" >
+            <div class="col">
+                <div class="dropdown">
+                <button class="btn btn_semanas dropdown-toggle  w-100" type="button" data-toggle="dropdown">SEMANA 1: ENCONTRAR PALABRAS CLAVES RENTABLES
+                <span class="caret"></span></button>
+                <ul id="semana1" class="dropdown-menu" >
+                    <div class="container-fluid" style="background-color: #4e3f8a;">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 text-light" style="padding: 2rem;">
+                            <h2 style="color:#fbc20a;">Encontrar palabras clave rentables</h2>
+                            <p>Dedique su primera semana a crear un conjunto de palabras clave para orientar el SEO. Dirigirse a las palabras clave correctas, donde hay mucho tráfico, donde las palabras clave se convierten en clientes y donde puede vencer a la competencia.</p>
+                            <p><strong>Esta semana vas a:</strong></p>
+                            <ul>
+                              <li>Generar una lista de ideas de palabras clave que sean relevantes para su sitio web.</li>
+                              <li>Evaluar la lista para encontrar un conjunto de palabras clave que tengan tráfico, conviertan y que se puedan ganar.</li>
+                              <li>Configurar el seguimiento automatizado de sus palabras clave mediante la creación de un proyecto de Ubersuggest, para que pueda monitorear el progreso.</li>
+                            </ul>
+                            
+                            
+                          </div>
+                          <div class="col-md-6" style="padding: 0;">
+                            <img src="./img//buscarPalabras.jpg" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      
+                </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dropdown">
+                <button class="btn btn_semanas dropdown-toggle w-100" type="button" data-toggle="dropdown">SEMANA 2: AUDITORIA SEO DEL SITIO
+                <span class="caret"></span></button>
+                <ul id="semana1" class="dropdown-menu" >
+                    <div class="container-fluid" style="background-color: #4e3f8a;">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 text-light" style="padding: 2rem;">
+                            <h2 style="color:#fbc20a;">Auditoría SEO del sitio</h2>
+                            <p>Dedique su segunda semana a corregir todos los errores de SEO en la página de su sitio web. La corrección de estos errores hará que su sitio sea más amigable para los motores de búsqueda y le facilitará la clasificación de sus palabras clave.</p>
+                            <p><strong>Esta semana vas a:</strong></p>
+                            <ul>
+                              <li>Escanee su sitio web en busca de errores de SEO con la herramienta de auditoría Ubersuggest</li>
+                              <li>Ordene su lista de errores de SEO para encontrar los problemas más importantes y los más fáciles de solucionar</li>
+                              <li>Corrija sus errores de SEO en el sitio</li>
+                            </ul>
+                            
+                            
+                          </div>
+                          <div class="col-md-6" style="padding: 0;">
+                            <img src="./img//auditoria.jpg" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      
+                </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dropdown">
+                <button class="btn btn_semanas dropdown-toggle w-100" type="button" data-toggle="dropdown">SEMANA 3: CREACION DE CONTENIDO PARA COMPARTIR
+                <span class="caret"></span></button>
+                <ul id="semana1" class="dropdown-menu" >
+                    <div class="container-fluid" style="background-color: #4e3f8a;">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 text-light" style="padding: 2rem;">
+                            <h2 style="color:#fbc20a;">Creación de contenido para compartir</h2>
+                            <p>Tome mi clase magistral de marketing de contenido y vea cómo creo contenido que genera tráfico y conversiones..</p>
+                            <p><strong>Esta semana vas a:</strong></p>
+                            <ul>
+                              <li>Descubra lo que ya está funcionando para los competidores en su mercado.</li>
+                              <li>Cree contenido sobrealimentado que se destaque por encima de sus competidores.</li>
+                              <li>Contrata a un escritor para que cree contenido para ti.</li>
+                            </ul>
+                            
+                            
+                          </div>
+                          <div class="col-md-6" style="padding: 0;">
+                            <img src="./img/creacion_contenido.jpg" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      
+                </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dropdown">
+                <button class="btn btn_semanas dropdown-toggle w-100" type="button" data-toggle="dropdown">SEMANA 4: SEGUIMIENTO AVANZADO
+                <span class="caret"></span></button>
+                <ul id="semana1" class="dropdown-menu" >
+                    <div class="container-fluid" style="background-color: #4e3f8a;">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 text-light" style="padding: 2rem;">
+                            <h2 style="color:#fbc20a;">Seguimiento avanzado</h2>
+                            <p>No puede escalar su comercialización hasta que sepa qué funciona y qué no. Al configurar todo el seguimiento correctamente, podrá ver las fuentes de tráfico, el contenido y las palabras clave que generan ingresos..</p>
+                            <p><strong>Esta semana vas a:</strong></p>
+                            <ul>
+                              <li>Configurar alertas y seguimiento avanzado de Google Analytics.</li>
+                              <li>Configure Google Search Console y verifique si hay errores de rastreo</li>
+                              <li>Ver tráfico oscuro. Descubra qué tipos de tráfico funcionan para usted.</li>
+                            </ul>
+                            
+                            
+                          </div>
+                          <div class="col-md-6" style="padding: 0;">
+                            <img src="./img//estadisticas.jpg" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      
+                </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dropdown">
+                <button class="btn btn_semanas dropdown-toggle w-100" type="button" data-toggle="dropdown">SEMANA 5: CONSTRUCCION DE ENLACES
+                <span class="caret"></span></button>
+                <ul id="semana1" class="dropdown-menu" >
+                    <div class="container-fluid" style="background-color: #4e3f8a;">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 text-light" style="padding: 2rem;">
+                            <h2 style="color:#fbc20a;">Construcción de enlaces</h2>
+                            <p>Los enlaces muestran a Google que su sitio es una fuente de información autorizada y confiable. La creación de enlaces de alta calidad mejorará sus resultados de SEO, además de que también aumentará su tráfico de referencia.</p>
+                            <p><strong>Esta semana vas a:</strong></p>
+                            <ul>
+                              <li>Identifique backlinks de calidad que estén disponibles en su nicho</li>
+                              <li>Cree una lista objetivo de sitios y encuentre su dirección de correo electrónico</li>
+                              <li>Crear una estrategia de alcance y comenzar el alcance</li>
+                            </ul>
+                            
+                            
+                          </div>
+                          <div class="col-md-6" style="padding: 0;">
+                            <img src="./img/conexiones.jpg" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      
+                </ul>
+                </div>
+                </div>
+                <div class="col">
+                <div class="dropdown">
+                <button class="btn btn_semanas dropdown-toggle w-100" type="button" data-toggle="dropdown">SEMANA 6: BRANDING Y EXPERIENCIA
+                <span class="caret"></span></button>
+                <ul id="semana1" class="dropdown-menu" >
+                    <div class="container-fluid" style="background-color: #4e3f8a;">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 text-light" style="padding: 2rem;">
+                            <h2 style="color:#fbc20a;">Marca y Experiencia</h2>
+                            <p>Utilice su marca y la experiencia del cliente como una herramienta para obtener más tráfico. Esta semana te enseñaré cómo modificar tu marca y la experiencia del cliente para crear experiencias memorables para tus clientes.</p>
+                            <p><strong>Esta semana vas a:</strong></p>
+                            <ul>
+                              <li>Analiza tu mercado y competencia</li>
+                              <li>Encuesta a tu mercado para entender mejor sus necesidades</li>
+                              <li>Implementar estrategias de marca y experiencia del cliente para aumentar el tráfico</li>
+                            </ul>
+                            
+                            
+                          </div>
+                          <div class="col-md-6" style="padding: 0;">
+                            <img src="./img/disfrutar.jpg" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      
+                </ul>
+                </div>
+                </div>
+                <div class="col">
+                <div class="dropdown">
+                <button class="btn btn_semanas dropdown-toggle w-100" type="button" data-toggle="dropdown">SEMANA 7: MARKETING DE CONTENIDO AVANZADO
+                <span class="caret"></span></button>
+                <ul id="semana1" class="dropdown-menu" >
+                    <div class="container-fluid" style="background-color: #4e3f8a;">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 text-light" style="padding: 2rem;">
+                            <h2 style="color:#fbc20a;">Marketing de contenido avanzado</h2>
+                            <p>Tome el contenido que hizo en la semana 3 y refínelo. Usa las estrategias de construcción de enlaces de la semana 5 y combínalas con las lecciones de esta semana para promocionar tu contenido.</p>
+                            <p><strong>Esta semana vas a:</strong></p>
+                            <ul>
+                              <li>Aplicar ingeniería inversa a la estrategia de marketing de contenido de su competidor más exitoso</li>
+                              <li>Revise y perfeccione el contenido que comenzó en la semana 3</li>
+                              <li>Promocionar tu contenido usando estrategias de construcción de enlaces desde la semana 5</li>
+                            </ul>
+                            
+                            
+                          </div>
+                          <div class="col-md-6" style="padding: 0;">
+                            <img src="./img//marketingAvanzado.jpg" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      
+                </ul>
+                </div>
+                </div>
+                </div>
+                <div class="text-center mt-5">
+                    <h3>Para ayudarte a implementar este plan te sugerimos:</h5>
+                <h1 class="text-uppercase mb-4" style="color:#fbc20a">Ubersuggest plan individual</h1>
+                <h4>Nuestro plan básico es todo lo que necesitas para 1 sitio web. Incluye las herramientas, la capacitación de SEO y el soporte personalizado que necesita para usar su tiempo de SEO de manera efectiva y obtener resultados.</h4>
+                <a href="#" class="boton" style="background-color: #fbc20a; color: #fafafa; " onclick="planes()">INICIAR MI PRUEBA GRATUITA</a>
+            </div>
+        </div>
+    <div id="nosotros">  
+    <section  class="text-white py-5 mt-5 slanted-border seccion" >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h2>Nuestra organización</h2>
+            <p class="lead">
+                Nuestra organización está comprometida con el desarrollo y crecimiento de empresas y emprendedores. Ofrecemos soluciones personalizadas de marketing digital y asesoramiento estratégico que se adaptan a las necesidades de cada cliente.
+
+                Nos enfocamos en establecer relaciones de confianza con nuestros clientes, trabajando de manera conjunta para alcanzar sus objetivos y hacer crecer su negocio. Contamos con un equipo altamente capacitado en diferentes áreas, tales como diseño gráfico, análisis de datos, publicidad en línea y desarrollo web.
+            </p>
+            <p>
+                Además, nos mantenemos a la vanguardia de las últimas tendencias y tecnologías en el mundo del marketing digital, para poder ofrecer a nuestros clientes soluciones innovadoras y efectivas.
+
+                En nuestra organización, valoramos la calidad en nuestro trabajo, el respeto por nuestros clientes y la pasión por lo que hacemos. Estamos comprometidos con brindar un servicio excepcional y lograr la satisfacción de nuestros clientes en todo momento.
+                
+                ¡Estamos ansiosos por trabajar contigo y ayudarte a llevar tu negocio al siguiente nivel!
+            </p>
+            
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="./img/marketing.jpg"
+              class="img-fluid rounded"
+              alt="Imagen de la organización"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="wave-section"></div>
+    <!-- <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="./img/fu.jpeg" alt="Foto de perfil" class="img-fluid rounded-circle">
+          </div>
+          <div class="col-md-6">
+            <h2>Sobre mí</h2>
+            <p>¡Hola! Mi nombre es Franklyn Urdaneta y soy un desarrollador full stack con más de 5 años de experiencia. Me apasiona la tecnología y siempre estoy buscando aprender cosas nuevas.</p>
+            <p>En mi tiempo libre, me gusta trabajar en proyectos personales y contribuir a proyectos de código abierto. También disfruto de los deportes al aire libre y la música.</p>
+            <p>Si estás buscando un desarrollador apasionado y dedicado para tu próximo proyecto, ¡no dudes en contactarme!</p>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#contactModal">Contactar</a>
+          </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">Nuestro Equipo</h2>
+          <div class="col-lg-4">
+            <div class="card mb-3">
+              <img src="./img/Diego.jpeg" class="card-img-top" alt="..." style="max-height: 290px;">
+              <div class="card-body" style="background-color: #4e3f8a;">
+                <h5 class="card-title text-white">Diego Amoroso</h5>
+                <p class="card-text text-white">soy  desarrollador front-end  Con una importante experiencia en el mundo de la tecnología, me apasiona crear soluciones creativas e innovadoras para nuestros clientes.
+
+                    Me considero una persona curiosa y siempre estoy en busca de nuevos desafíos personales y profesionales. Fuera del trabajo, me gusta practicar deportes y pasar tiempo con amigos y familiares.
+                    
+                    En nuestro equipo, nos esforzamos por entender las necesidades únicas de cada cliente y ofrecer soluciones personalizadas para ayudar a tu organización a alcanzar todo su potencial. </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card mb-3">
+              <img src="./img/fu.jpeg" style="max-height: 290px;" class="card-img-top" alt="..." >
+              <div class="card-body" style="background-color: #fbc20a;">
+                <h5 class="card-title">Franklyn Urdaneta</h5>
+                <p class="card-text">¡Hola! soy un desarrollador full stack con más de 5 años de experiencia. Me apasiona la tecnología y siempre estoy buscando aprender cosas nuevas.</p>
+                <p>En mi tiempo libre, me gusta trabajar en proyectos personales y contribuir a proyectos de código abierto. También disfruto de los deportes al aire libre y la música.</p>
+                <p>Si estás buscando un desarrollador apasionado y dedicado para tu próximo proyecto, ¡no dudes en contactarme!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card mb-3">
+              <img src="./img/javier.jpeg" style="max-height: 290px;" class="card-img-top" alt="...">
+              <div class="card-body" style="background-color: #4e3f8a;">
+                <h5 class="card-title text-white">Javier Santamaria</h5>
+                <p class="card-text text-white"> tengo 35 años, soy profesor de inglés y me dedico a la gestión de compras en una compañía de servicios de logística, al mismo tiempo me estoy capacitando en el área de Tecnología como desarrollador web. En mi tiempo libre me gusta salir de paseo, ir al cine, a la playa, también juego basketball y me gusta tocar la batería, dibujar y escucho todo tipo de música pero mi pasión es el rock
+                Si estás buscando un desarrollador apasionado  ¡no dudes en contactarme!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>  
+        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contáctame</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+      
+      
+      
+       
+    <!-- <button class="btn btn-primary" onclick="exportToPDF()">
+      <i class="fas fa-file-pdf mr-2"></i>Exportar a PDF
+    </button> -->
+    <footer id="footer" style="background-color: #212529!important; padding: 20px">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="d-flex justify-content-center mb-3">
+              <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
+              <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+              <span class="me-2" style="color:#fafafa">&copy; 2023 Success Strategies</span>
+              <!-- <a href="#" class="text-white me-2">Privacy Policy</a>
+              <a href="#" class="text-white">Terms of Use</a> -->
+            </div>
+        </div>
+      </div>
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

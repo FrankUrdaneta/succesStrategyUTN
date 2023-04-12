@@ -1,0 +1,233 @@
+/* Color principal: #4e3f8a secundario #fbc20a
+Color secundario: #8983b0
+Color acentuado: ##fbc20a */
+html {
+  scroll-behavior: smooth;
+}
+.navbar {
+  background-color: #4e3f8a; /* Color principal */
+}
+
+.navbar-toggler-icon {
+  background-color: #8983b0; /* Color secundario */
+}
+
+.navbar-nav .nav-link {
+  color: #fff; /* Texto en color blanco */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fbc20a; /* Color acentuado en el hover */
+}
+
+.navbar-brand {
+  color: #fff; /* Texto en color blanco */
+}
+
+.navbar-brand:hover {
+  color: #fbc20a; /* Color acentuado en el hover */
+}
+/*cambiar color al nav dando scroll*/
+.navbar.scrolled {
+  background-color: #fafafa;
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .navbar-nav .nav-link {
+  color: #4e3f8a;
+}
+
+/*Seccion mi organizacion */
+section {
+  background-color: #4e3f8a;
+  color: #fff;
+}
+
+h2 {
+  color: #fff;
+}
+
+.btn-outline-light {
+  color: #fff;
+  border-color: #fff;
+}
+
+/*Seccion presetancion personal*/
+section.bg-light {
+  background-color: #8983b0;
+}
+
+section.bg-light h2,
+section.bg-light p {
+  color: #4e3f8a;
+}
+
+section.bg-light a.btn {
+  background-color: #fbc20a;
+  color: #4e3f8a;
+}
+
+section.bg-light a.btn:hover {
+  background-color: #4e3f8a;
+  color: #fbc20a;
+}
+/*formulario de contacto */
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+textarea.form-control {
+  height: 150px;
+}
+
+.btn-primary {
+  background-color: #fafafa;
+  border-color: #4e3f8a;
+  color: #4e3f8a;
+
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #fbc20a;
+  border-color: #fbc20a;
+  color: #fff;
+}
+/*Wavw efec*/
+.wave-section {
+  background-image: url("../img/wave.svg"); /* URL de la imagen wave.svg */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px; /* ajusta la altura según la altura de la imagen wave */
+  transform: rotate(
+    180deg
+  ); /* voltea la imagen para que se vea en la parte inferior */
+  margin-top: 0px; /* mitad de la altura de la sección wave */
+}
+
+/* Imagen */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+#wizard-form .form-group {
+  display: none;
+}
+
+#wizard-form .form-group:first-child {
+  display: block;
+}
+/*Footer*/
+#main {
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+/*centrando el form w*/
+#question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+#question h1 {
+  max-width: 760px;
+  text-align: center;
+}
+
+#question .boton_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#question .boton_text label {
+  text-align: center;
+}
+
+#question .boton_text button {
+  margin: 1rem;
+  width: 50%;
+  height: 4rem;
+}
+
+.btn-group-vertical > .btn {
+  width: 130%;
+  height: 4rem;
+  margin: 1rem;
+  border-radius: 5px !important;
+}
+.input-group-text {
+  line-height: 2 !important;
+  background-color: #4e3f8a;
+  color: #fafafa;
+}
+.titulo {
+  /* background-color: #4e3f8a; */
+  color: white;
+  padding: 20px;
+  font-size: 32px;
+  text-align: center;
+}
+
+.boton {
+  background-color: #4e3f8a;
+  color: #fff;
+  display: inline-block;
+  padding: 12px 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.boton:hover {
+  background-color: #fff;
+  color: #4e3f8a;
+}
+.btn_semanas {
+  background-color: #fafafa;
+  color: #4e3f8a;
+  border: 1px solid #4e3f8a;
+  display: inline-block;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.btn_semanas:focus {
+  background-color: #4e3f8a;
+  color: #fafafa;
+}
+h3,
+h4,
+h5,
+h6,
+h2 {
+  color: #8983b0;
+}
+
+#semana1 {
+  transform: translate3d(0px, 40px, 0px) !important;
+}
+
+#plan_7semanas,
+#planes {
+  margin: 3rem 0 2rem 0;
+}
