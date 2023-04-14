@@ -22,6 +22,7 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src=" https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
+    
     <link href="./style/style.css" rel="stylesheet" />
     <title>Success Strategies</title>
   </head>
@@ -58,7 +59,7 @@
                   <div class="card-body">
                     <i class="fas fa-bullhorn fa-4x text-primary mb-4"></i>
                     <h5 class="card-title">Publicidad en línea</h5>
-                    <p class="card-text">Creamos y gestionamos campañas publicitarias efectivas en línea para aumentar el tráfico y las ventas de tu sitio web.</p>
+                    <p class="card-text">Creamos y gestionamos campañas publicitarias efectivas en línea para aumentar el tráfico y las ventas de tu sitio web y una excelente gestión de redes sociales.</p>
                   </div>
                 </div>
               </div>
@@ -121,15 +122,17 @@
     </div>
       
     <div id="pagina" >
-    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-purple-yellow fixed-top" id="navbar">
+    <nav class="navbar navbar-expand-md navbar-dark bg-gradient-purple-yellow fixed-top" id="navbar">
         <div id="texto_nav" style="display: flex;margin-left:3rem;">
-        <a class="navbar-brand" href="#">Success Strategies</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a class="nav-link" style="color: #fbc20a;">SUCCESS STRATEGIES</a></li>
             <li class="nav-item active">
               <a class="nav-link" onclick="inicio()">Inicio</a>
             </li>
@@ -138,13 +141,17 @@
               <a class="nav-link" onclick="planes()">Productos</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" onclick="servicios()">Servicios</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" onclick="acercade()">Acerca de</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="modal" data-target="#contactModal">Contacto</a>
             </li>
+            <li class="nav-item"><a id="weather-icon" style=" right: 2rem;color: #fafafa;"></a></li>
           </ul>
-          <div id="weather-icon" style="position: absolute; right: 2rem;color: #fafafa;"></div>
+          
         </div>
     </div>
     </nav>
@@ -157,9 +164,10 @@
                     <p>Elige el plan que mejor se adapte a las necesidades de tu negocio</p>
                 </div>
             </div>
+            <div class="container mt-3">
               <div class="row">
                 <div class="col-md-4">
-                  <div class="card">
+                  <div class="card card-equal-height">
                     <div class="card-header">
                       <h4 style="color:#fbc20a;">Plan Básico</h4>
                     </div>
@@ -169,30 +177,32 @@
                         <li><i class="fas fa-check"></i> Anuncios en una red social</li>
                         <li><i class="fas fa-check"></i> 2 publicaciones semanales</li>
                         <li><i class="fas fa-check"></i> Reportes mensuales de análisis de datos</li>
+                        <li><i class="fas fa-check"></i> Gestión de presencia en línea </li>
+                        <li><i class="fas fa-check"></i> Seguimiento </li>
                       </ul>
                       <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card">
+                  <div class="card card-equal-height">
                     <div class="card-header">
-                      <h4 style="color:#fbc20a;">Plan Intermedio</h4>
+                      <h4 style="color:#4e3f8a;">Plan Intermedio</h4>
                     </div>
-                    <div class="card-body">
-                      <h3>$299/mes</h3>
+                    <div class="card-body" style="background-color: #fbc20a; color:#fafafa">
+                      <h3 style="color: #4e3f8a;">$299/mes</h3>
                       <ul>
                         <li><i class="fas fa-check"></i> Anuncios en dos redes sociales</li>
                         <li><i class="fas fa-check"></i> 4 publicaciones semanales</li>
                         <li><i class="fas fa-check"></i> Reportes semanales de análisis de datos</li>
                         <li><i class="fas fa-check"></i> Administración de campañas publicitarias</li>
                       </ul>
-                      <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
+                      <a id="intermedioBTN" href="#contact" class="btn btn-primary btn-block ">Comprar</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card">
+                  <div class="card card-equal-height">
                     <div class="card-header">
                       <h4 style="color:#fbc20a;">Plan Premium</h4>
                     </div>
@@ -203,7 +213,7 @@
                         <li><i class="fas fa-check"></i> 6 publicaciones semanales</li>
                         <li><i class="fas fa-check"></i> Reportes diarios de análisis de datos</li>
                         <li><i class="fas fa-check"></i> Administración avanzada de campañas publicitarias</li>
-                        <li><i class="fas fa-check"></i> Gestión de presencia en línea</li>
+                        
                       </ul>
                       <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
                     </div>
@@ -235,7 +245,7 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
-                      <p>“Estoy muy contento con los resultados que hemos logrado en términos de ventas y presencia en línea”</p>
+                      <p>“Estoy muy contento con los resultados que hemos logrado en términos de ventas”</p>
                       <h5>Roberto Sánchez, dueño de una cadena de restaurantes</h5>
                     </div>
                   </div>
@@ -298,33 +308,7 @@
         </div>
     </div>
     
-    <div id="contact" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="text-center" style="color:#fbc20a;">Contáctanos</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-8 mx-auto">
-            <form action="#" method="post">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre" required>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Correo electrónico" required>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Asunto" required>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" rows="5" placeholder="Mensaje" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar mensaje</button>
-            </form>
-          </div>
-        </div>
-      </div>
+    
     </div>
         
 </div>
@@ -628,38 +612,39 @@
       
       
     </div>  
-        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="contactModalLabel">Contáctame</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre">
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea class="form-control" id="message" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
-                </div>
-                </form>
-            </div>
-            <div class="modal-footer">
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">Contáctame</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre">
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico">
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea class="form-control" id="message" name="message" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
+              </div>
+              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Enviar</button>
-            </div>
-            </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
+      </div>
+    </div>
+    
 
       
       
@@ -691,6 +676,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
     <script src="./js/index.js"></script>
   </body>
 </html>

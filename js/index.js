@@ -1,20 +1,15 @@
 // Agregamos un listener para escuchar cuando se hace clic en el bot�n del men� hamburguesa
-document.querySelector('.navbar-toggler').addEventListener('click', function() {
-    // Agregamos o removemos la clase 'collapsed' al bot�n para animarlo
-    this.classList.toggle('collapsed');
-    // Obtenemos el div con la clase 'navbar-collapse' y agregamos o removemos la clase 'show'
-    document.querySelector('.navbar-collapse').classList.toggle('show');
-  });
+
   //?capturo el onload para ocultar y mostar
   document.addEventListener("DOMContentLoaded", function() {
     // Mostrar el contenedor principal
-    document.getElementById("main-container").style.display = "block";
-    document.getElementById("navbar").style.display = "none";
-    document.getElementById("plan_7semanas").style.display = "none";
-    document.getElementById("nosotros").style.display = "none";
-    document.getElementById("footer").style.display = "none";
-    document.getElementById("planes").style.display = "none";
-    document.getElementById("inicio").style.display = "none";
+    $("#main-container").show();
+    $("#navbar").hide();
+    $("#plan_7semanas").hide();
+    $("#nosotros").hide();
+    $("#footer").hide();
+    $("#planes").hide();
+    $("#inicio").hide();
   });
 function exportToPdf() {
     // Crea un nuevo documento PDF
@@ -267,19 +262,19 @@ function sendForm() {
 nextQuestion(1);
 
 function oculatrMostrar(){
-    document.getElementById("main-container").style.display = "none";
-    document.getElementById("navbar").style.display = "flex";
-    document.getElementById("plan_7semanas").style.display = "block";
-    document.getElementById("footer").style.display = "block";
-    document.getElementById("inicio").style.display = "none";
+    $("#main-container").hide()
+    $("#navbar").css("display", "flex");
+    $("#plan_7semanas").show()
+    $("#footer").show()
+    $("#inicio").hide()
 }
 
 function salir(){
-    document.getElementById("main-container").style.display = "none";
-    document.getElementById("navbar").style.display = "flex";
-    document.getElementById("plan_7semanas").style.display = "block";
-    document.getElementById("footer").style.display = "block";
-    document.getElementById("inicio").style.display = "none";
+    $("#main-container").hide()
+    $("#navbar").css("display", "flex");
+    $("#plan_7semanas").show()
+    $("#footer").show()
+    $("#inicio").hide()
 }
 
 function irIni(){
@@ -314,9 +309,9 @@ function irIni(){
 const urlInput = document.getElementById("url-input");
 const nextBtn = document.getElementById("prox");
 
-nextBtn.addEventListener("click", () => {
+$("#prox").click(() => {
   // Validar la URL ingresada
-  const url = urlInput.value;
+  const url = $("#url-input").val();
   if (!isValidUrl(url)) {
     alert("Por favor ingrese una URL válida");
     return;
@@ -340,10 +335,10 @@ const form = document.querySelector('form');
 const aceptarCheckbox = document.querySelector('#aceptar');
 
 function validarCampos() {
-  const nombreInput = document.querySelector('#nombre');
-  const telefonoInput = document.querySelector('#telefono');
-  const emailInput = document.querySelector('#email');
-  if (!nombreInput.value || !telefonoInput.value || !emailInput.value) {
+  const nombreInput = $('#nombre');
+  const telefonoInput = $('#telefono');
+  const emailInput = $('#email');
+  if (!nombreInput.val() || !telefonoInput.val() || !emailInput.val()) {
     alert('Por favor completa todos los campos requeridos.');
     return false;
   }
@@ -362,39 +357,39 @@ function validoForm(){
 
 
 function planes(){
-    document.getElementById("plan_7semanas").style.display = "none";
-    document.getElementById("navbar").style.display = "flex";
-    document.getElementById("footer").style.display = "block";
-    document.getElementById("planes").style.display = "block";
-    document.getElementById("inicio").style.display = "none";
+    $("#plan_7semanas").hide()
+    $("#navbar").css("display", "flex");
+    $("#footer").show();
+    $("#planes").show();
+    $("#inicio").hide()
 }
 
 function acercade(){
-    document.getElementById("plan_7semanas").style.display = "none";
-    document.getElementById("navbar").style.display = "flex";
-    document.getElementById("footer").style.display = "block";
-    document.getElementById("planes").style.display = "none";
-    document.getElementById("nosotros").style.display = "block";
-    document.getElementById("inicio").style.display = "none";
+    $("#plan_7semanas").hide()
+    $("#navbar").css("display", "flex");
+    $("#footer").show();
+    $("#planes").hide()
+    $("#nosotros").show();
+    $("#inicio").hide()
 }
 
 function inicio(){
-    document.getElementById("plan_7semanas").style.display = "none";
-    document.getElementById("navbar").style.display = "flex";
-    document.getElementById("footer").style.display = "block";
-    document.getElementById("planes").style.display = "none";
-    document.getElementById("nosotros").style.display = "none";
-    document.getElementById("inicio").style.display = "block";
+    $("#plan_7semanas").hide()
+    $("#navbar").css("display", "flex");
+    $("#footer").show();
+    $("#planes").hide()
+    $("#nosotros").hide()
+    $("#inicio").show();
 }
 
 function SEO(){
-    document.getElementById("main-container").style.display = "block";
-    document.getElementById("navbar").style.display = "none";
-    document.getElementById("plan_7semanas").style.display = "none";
-    document.getElementById("nosotros").style.display = "none";
-    document.getElementById("footer").style.display = "none";
-    document.getElementById("planes").style.display = "none";
-    document.getElementById("inicio").style.display = "none";
+    $("#main-container").show();
+    $("#navbar").hide();
+    $("#plan_7semanas").hide();
+    $("#nosotros").hide();
+    $("#footer").hide();
+    $("#planes").hide();
+    $("#inicio").hide();
 }
 
 //?inicio temperatura funciones
@@ -431,28 +426,110 @@ function getIcon(icon3d) {
     return "./img/climaDinamic/day.svg";
     }
 }
+
+
+// navigator.geolocation.getCurrentPosition((position) => {
+//     const lat = position.coords.latitude;
+//     const lon = position.coords.longitude;
+//     if(lat!=""){
+//     const url = `${apiUrl}&lat=${lat}&lon=${lon}&units=metric`;
+
+//     fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log(data.weather[0].icon);
+//         const icon3d = data.weather[0].icon;
+//         const temperature = Math.ceil(data.main.temp);
+//         const weatherIcon = document.getElementById("weather-icon");
+//         const iconElement = getIcon(icon3d);
+//         const imgElement = document.createElement("img");
+//         imgElement.setAttribute("src", iconElement);
+//         weatherIcon.innerHTML = "";
+//         weatherIcon.appendChild(imgElement);
+//         weatherIcon.innerHTML += `${temperature+1}°C`;
+//     });
+// }
+// });
 const apiKey = "8fb8a8f95983b6752acee95d7579284a";
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
-
-navigator.geolocation.getCurrentPosition((position) => {
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function (position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    if(lat!=""){
-    const url = `${apiUrl}&lat=${lat}&lon=${lon}&units=metric`;
-
-    fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data.weather[0].icon);
-        const icon3d = data.weather[0].icon;
-        const temperature = Math.ceil(data.main.temp);
-        const weatherIcon = document.getElementById("weather-icon");
-        const iconElement = getIcon(icon3d);
-        const imgElement = document.createElement("img");
-        imgElement.setAttribute("src", iconElement);
-        weatherIcon.innerHTML = "";
-        weatherIcon.appendChild(imgElement);
-        weatherIcon.innerHTML += `${temperature+1}°C`;
-    });
+    if (lat != "") {
+      const url = `${apiUrl}&lat=${lat}&lon=${lon}&units=metric`;
+      $.ajax({
+        url: url,
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+          console.log(data.weather[0].icon);
+          const icon3d = data.weather[0].icon;
+          const temperature = Math.ceil(data.main.temp);
+          const weatherIcon = $("#weather-icon");
+          const iconElement = getIcon(icon3d);
+          const imgElement = $("<img>").attr("src", iconElement);
+          weatherIcon.html("").append(imgElement);
+          weatherIcon.append(`${temperature+1}°C`);
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    }
+  });
 }
+
+function servicios(){
+  $("#main-container").hide();
+  $("#navbar").css("display", "flex");
+  $("#plan_7semanas").show();
+  $("#nosotros").hide();
+  $("#footer").show();
+  $("#planes").hide();
+  $("#inicio").hide();
+}
+
+
+//?usamos validate para este form
+$(document).ready(function() {
+  $('#contactModal form').validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      message: {
+        required: true,
+        minlength: 10
+      }
+    },
+    messages: {
+      name: {
+        required: "Por favor ingresa tu nombre",
+        minlength: "El nombre debe tener al menos 3 caracteres"
+      },
+      email: {
+        required: "Por favor ingresa tu correo electrónico",
+        email: "Por favor ingresa una dirección de correo electrónico válida"
+      },
+      message: {
+        required: "Por favor ingresa un mensaje",
+        minlength: "El mensaje debe tener al menos 10 caracteres"
+      }
+    },
+    submitHandler: function(form) {
+      // Aquí puedes agregar tu código para enviar el formulario
+      alert('El formulario se ha enviado correctamente');
+      console.log('Datos Obtenidos del form contacto')
+      console.log($(form).serialize());
+      form.reset();
+      $('#contactModal').hide();
+      $('.modal-backdrop').hide();
+    }
+  });
 });
