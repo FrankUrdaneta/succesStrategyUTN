@@ -30,8 +30,9 @@
   </head>
   <body>
     
+    
     <div id="inicio">
-        <div class="container-fluid  mt-5" style="background-color: #4e3f8a;">
+        <div class="container-fluid " style="background-color: #4e3f8a;">
             <div class="row">
               <div class="col-md-6 order-2 order-md-1">
                 <div class="p-5">
@@ -45,6 +46,7 @@
               </div>
             </div>
           </div>
+          
           <div class="container my-5">
             <h2 class="text-center">¿Cómo podemos ayudarte?</h2>
             <div class="row justify-content-between">
@@ -76,6 +78,12 @@
                 </div>
               </div>
             </div>
+
+
+
+            
+
+
             <div class="row justify-content-center mt-5" >
               <div class="col-md-6">
                 <div class="card bg-secondary">
@@ -88,7 +96,35 @@
               </div>
             </div>
           </div>
-          
+          <div class="container-fluid mt-5" style="background: #4e3f8a;padding: 1rem;">
+            <div class="row">
+              <div class="col-md-4 my-4">
+                <h2 class="text-white">Busca la imagen que necesites para tu sitio</h2>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Buscar imagen" id="inputBusqueda">
+                  <div class="input-group-append">
+                    <button style="background-color:#fbc20a; color: #4e3f8a;" class="btn btn-outline-secondary form-control" type="button" id="buttonBusqueda" onclick="gallery()">Buscar</button>
+                  </div>
+                </div>
+               <h5>"El éxito en el marketing digital comienza con una motivación fuerte y un compromiso aún más fuerte para superar cualquier obstáculo en el camino".</h5>
+              </div>
+              <div class="col-md-8">
+                <!-- Contenido de la columna derecha -->
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators" id="indicators"></ol>
+                  <div class="carousel-inner" id="carousel-inner"></div>
+                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
          </div>
          
           
@@ -135,7 +171,7 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" style="color: #fbc20a;">SUCCESS STRATEGIES</a></li>
+            <li class="nav-item active"><a class="nav-link" style="color: #fbc20a;font-weight: bold;">SUCCESS STRATEGIES</a></li>
             <li class="nav-item active">
               <a class="nav-link" onclick="inicio()">Inicio</a>
             </li>
@@ -149,6 +185,9 @@
             <li class="nav-item">
               <a class="nav-link" onclick="acercade()">Acerca de</a>
             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" onclick="galerry()">Buscador de Imagenes</a>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" data-toggle="modal" data-target="#contactModal">Contacto</a>
             </li>
@@ -683,5 +722,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 
     <script src="./js/index.js"></script>
+    <script>
+      gallery();
+    </script>
   </body>
 </html>

@@ -253,3 +253,32 @@ h2 {
 #navbar {
   cursor: pointer;
 }
+
+#sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#sidebar img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+#sidebar img:hover {
+  opacity: 1;
+}
+
+.carousel-item img {
+  max-height: 30rem;
+  object-fit: cover;
+}
+.carousel-inner img {
+  object-fit: contain; /* Opciones: cover, contain, fill, none, scale-down */
+}

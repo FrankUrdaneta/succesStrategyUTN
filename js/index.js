@@ -533,3 +533,60 @@ $(document).ready(function() {
     }
   });
 });
+
+//?crear galeria
+const accessKey = '';
+
+const imgBuscar = 'estrategias';
+function gallery() {
+  const search = $('#inputBusqueda').val();
+  $.ajax({
+    url: `https://api.unsplash.com/search/photos?query=${search ? search : imgBuscar}&per_page=10&client_id=${accessKey}`,
+    method: 'GET'
+  })
+  .done(function(data) {
+    console.log(data);
+    if (data.results.length == 0) {
+      alert('No hay resultados para tu búsqueda. Intenta de nuevo.');
+      return;
+    }
+    const carouselInner = $('#carousel-inner');
+    const indicators = $('#indicators');
+    carouselInner.empty();
+    indicators.empty();
+    data.results.forEach((photo, index) => {
+      const img = $('<img>', {
+        src: `${photo.urls.regular}&w=400&h=400`,
+        class: 'd-block w-100 img-fluid'
+      });
+      const carouselItem = $('<div>', {
+        class: `carousel-item ${index === 0 ? 'active' : ''}`
+      }).append(img);
+      carouselInner.append(carouselItem);
+
+      const indicator = $('<li>', {
+        'data-target': '#myCarousel',
+        'data-slide-to': index
+      });
+      if (index === 0) {
+        indicator.addClass('active');
+      }
+      indicators.append(indicator);
+
+      const sidebarImg = $('<img>', {
+        src: photo.urls.thumb
+      });
+      sidebarImg.on('click', () => {
+        $('#myCarousel').carousel(index);
+      });
+    });
+  })
+  .fail(function(error) {
+    console.log(error);
+  });
+}
+
+
+
+
+      
