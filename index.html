@@ -106,7 +106,7 @@
                     <button style="background-color:#fbc20a; color: #4e3f8a;" class="btn btn-outline-secondary form-control" type="button" id="buttonBusqueda" onclick="gallery()">Buscar</button>
                   </div>
                 </div>
-               <h5>"El éxito en el marketing digital comienza con una motivación fuerte y un compromiso aún más fuerte para superar cualquier obstáculo en el camino".</h5>
+               <h5 style="color:#fafafa;">"El éxito en el marketing digital comienza con una motivación fuerte y un compromiso aún más fuerte para superar cualquier obstáculo en el camino".</h5>
               </div>
               <div class="col-md-8">
                 <!-- Contenido de la columna derecha -->
@@ -199,8 +199,8 @@
     </nav>
     <div id="planes" >
         <div class="plans-section">
-            <div class="">
-                        <div class="row" style="background-color:#4e3f8a; color:white; padding: 50px 0;">
+            
+            <div class="" style="background-color:#4e3f8a; color:white; padding: 50px;">
                 <div class="col-md-12 text-center">
                     <h2 style="color:#fbc20a;">Descubre nuestros planes de marketing digital</h2>
                     <p>Elige el plan que mejor se adapte a las necesidades de tu negocio</p>
@@ -208,7 +208,7 @@
             </div>
             <div class="container mt-3">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" id="plan_basico">
                   <div class="card card-equal-height">
                     <div class="card-header">
                       <h4 style="color:#fbc20a;">Plan Básico</h4>
@@ -222,11 +222,12 @@
                         <li><i class="fas fa-check"></i> Gestión de presencia en línea </li>
                         <li><i class="fas fa-check"></i> Seguimiento </li>
                       </ul>
-                      <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
+                      
                     </div>
+                    <a id="basicoBTN" href="#contact" class="btn btn-primary btn-block" onclick="pagar(this)">Comprar</a>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="plan_medio">
                   <div class="card card-equal-height">
                     <div class="card-header">
                       <h4 style="color:#4e3f8a;">Plan Intermedio</h4>
@@ -239,11 +240,12 @@
                         <li><i class="fas fa-check"></i> Reportes semanales de análisis de datos</li>
                         <li><i class="fas fa-check"></i> Administración de campañas publicitarias</li>
                       </ul>
-                      <a id="intermedioBTN" href="#contact" class="btn btn-primary btn-block ">Comprar</a>
+                      
                     </div>
+                    <a id="intermedioBTN" href="#contact" class="btn btn-primary btn-block " onclick="pagar(this)">Comprar</a>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="plan_premium">
                   <div class="card card-equal-height">
                     <div class="card-header">
                       <h4 style="color:#fbc20a;">Plan Premium</h4>
@@ -257,8 +259,9 @@
                         <li><i class="fas fa-check"></i> Administración avanzada de campañas publicitarias</li>
                         
                       </ul>
-                      <a href="#contact" class="btn btn-primary btn-block">Comprar</a>
+                      
                     </div>
+                    <a id="premiumBTN" href="#contact" class="btn btn-primary btn-block" onclick="pagar(this)">Comprar</a>
                   </div>
                 </div>
               </div>
@@ -346,8 +349,28 @@
               </div>
             </div>
           </div>
-          
-        </div>
+          <!-- Modal de pago -->
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" style="color: #4e3f8a;" id="myModal2Label">Paga con Mercado Pago<img
+                    src="https://http2.mlstatic.com/frontend-assets/mp-web-navigation/ui-navigation/5.31.0/mercadopago/logo__large.png"
+                    style="width: 6rem"
+                  /></h5>
+                </div>
+                <div class="modal-body">
+                  <p>¡Serás redirigido al sitio seguro de Mercado Pago, donde podrás completar la transacción de forma rápida y sencilla. Una vez allí, sigue las instrucciones para realizar el pago y, una vez finalizado, serás redirigido de vuelta a nuestro sitio web para finalizar el proceso. ¡Gracias por confiar en nosotros!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="myModal2" onclick="cancelarpagar()">Cancelar</button>
+
+                  <a href="https://www.mercadopago.com.ar/home" target="_blank" type="button" class="btn btn-primary" id="submitPayment" onclick="exportToPdf()">Pagar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
     </div>
     
     

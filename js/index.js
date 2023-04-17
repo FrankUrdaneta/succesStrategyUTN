@@ -11,29 +11,54 @@
     $("#planes").hide();
     $("#inicio").hide();
   });
-function exportToPdf() {
+  function exportToPdf() {
     // Crea un nuevo documento PDF
+    $('#myModal2').modal('hide');
     var doc = new jsPDF();
-    // Obtiene los datos del formulario
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var address = document.getElementById("address").value;
-    var phone = document.getElementById("phone").value;
-    var creditCard = document.getElementById("credit-card").value;
-    var expiration = document.getElementById("expiration").value;
-    var cvv = document.getElementById("cvv").value;
-  
-    // Agrega los datos al documento PDF
-    doc.text("Name: " + name, 10, 10);
-    doc.text("Email: " + email, 10, 20);
-    doc.text("Address: " + address, 10, 30);
-    doc.text("Phone: " + phone, 10, 40);
-    doc.text("Credit Card: " + creditCard, 10, 50);
-    doc.text("Expiration: " + expiration, 10, 60);
-    doc.text("CVV: " + cvv, 10, 70);
-  
+    
+    // Recupera los datos del LocalStorage
+    var datosJSON = localStorage.getItem('datos');
+    var datos = JSON.parse(datosJSON);
+    var lineasLista = doc.splitTextToSize(datos.lista.join(", "), 150);
+    
+    // Agrega la información de la compra al documento PDF
+    doc.setFontSize(14);
+    doc.text("Recibo de Pago", 105, 10, {align: 'center'});
+    doc.setFontSize(10);
+    doc.text("Numero de orden: " + generateOrderNumber(), 10, 30);
+    doc.text("Fecha: " + formatDate(new Date()), 10, 40);
+    doc.text("Plan: " + datos.titulo, 10, 50);
+    doc.text("Precio: " + datos.precio, 10, 60);
+    doc.text("Beneficios:", 10, 70);
+    doc.setFontSize(10);
+    doc.text(lineasLista, 20, 80);
+    
+    // Calcula los impuestos y el total
+    var subtotal = parseFloat(datos.precio.replace('$', ''));
+    var impuestos = subtotal * 0.15;
+    var total = subtotal + impuestos;
+    
+    // Agrega la información de los impuestos y el total al documento PDF
+    doc.text("Subtotal: $" + subtotal.toFixed(2), 10, 120);
+    doc.text("impuestos (15%): $" + impuestos.toFixed(2), 10, 130);
+    doc.setFontType('bold');
+    doc.text("Total: $" + total.toFixed(2), 10, 140);
+    
     // Guarda el documento PDF
-    doc.save("formulario.pdf");
+    doc.save("payment-receipt.pdf");
+  }
+
+  function generateOrderNumber() {
+    return Math.floor(Math.random() * 1000000) + 1;
+  }
+  function formatDate(date) {
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    return day + '/' + month + '/' + year + ' ' + hour + ':' + minute + ':' + second;
   }
 
   //?agrego efecto scrollreaveal beautifull
@@ -552,8 +577,8 @@ function gallery() {
     }
     const carouselInner = $('#carousel-inner');
     const indicators = $('#indicators');
-    carouselInner.empty();
-    indicators.empty();
+    carouselInner.empty();//limpio antes de pintar nuevamente
+    indicators.empty();//to me
     data.results.forEach((photo, index) => {
       const img = $('<img>', {
         src: `${photo.urls.regular}&w=400&h=400`,
@@ -588,5 +613,34 @@ function gallery() {
 
 
 
-
+//?bton pagar 
+// Manejar el clic del botón de pago
+function pagar(boton) {
+  // Mostrar el modal de pago
+  $('#myModal2').modal('show');
+  var padre = boton.parentNode;
+  var titulo = padre.querySelector('h4').innerText;
+  var precio = padre.querySelector('h3').innerText;
+  var lista = padre.querySelectorAll('ul li');
+  var textoLista = [];
+  for (var i = 0; i < lista.length; i++) {
+    textoLista.push(lista[i].innerText);
+  }
+  var datos = {
+    titulo: titulo,
+    precio: precio,
+    lista: textoLista
+  };
+  var datosJSON = JSON.stringify(datos);
+  localStorage.setItem('datos', datosJSON);//los guardo en el local storage
+}
+function cancelarpagar() {
+  // Mostrar el modal de pago
+  $('#myModal2').modal('hide');
+}
+// Manejar el clic del botón de enviar pago
+document.getElementById("submitPayment").addEventListener("click", function() {
+  // Enviar los datos de la transacción a MercadoPago
+  // Mostrar un mensaje de confirmación o un mensaje de error según el resultado
+});
       

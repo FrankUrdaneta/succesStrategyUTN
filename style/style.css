@@ -238,11 +238,12 @@ h2 {
   transform: translate3d(0px, 40px, 0px) !important;
 }
 
-#plan_7semanas,
-#planes {
+#plan_7semanas {
   margin: 4rem 0 2rem 0;
 }
-
+#planes {
+  margin: 3rem 0 2rem 0;
+}
 .card-equal-height {
   max-height: 400px;
   overflow: auto;
