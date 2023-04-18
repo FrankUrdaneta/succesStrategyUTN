@@ -363,8 +363,16 @@ function validarCampos() {
   const nombreInput = $('#nombre');
   const telefonoInput = $('#telefono');
   const emailInput = $('#email');
-  if (!nombreInput.val() || !telefonoInput.val() || !emailInput.val()) {
-    alert('Por favor completa todos los campos requeridos.');
+  if (!nombreInput.val()) {
+    alert('Por favor completa el nombre.');
+    return false;
+  }
+  if (!telefonoInput.val()) {
+    alert('Por favor completa el telefono.');
+    return false;
+  }
+  if ( !emailInput.val()) {
+    alert('Por favor completa el email.');
     return false;
   }
   return true;
@@ -453,28 +461,7 @@ function getIcon(icon3d) {
 }
 
 
-// navigator.geolocation.getCurrentPosition((position) => {
-//     const lat = position.coords.latitude;
-//     const lon = position.coords.longitude;
-//     if(lat!=""){
-//     const url = `${apiUrl}&lat=${lat}&lon=${lon}&units=metric`;
-
-//     fetch(url)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data.weather[0].icon);
-//         const icon3d = data.weather[0].icon;
-//         const temperature = Math.ceil(data.main.temp);
-//         const weatherIcon = document.getElementById("weather-icon");
-//         const iconElement = getIcon(icon3d);
-//         const imgElement = document.createElement("img");
-//         imgElement.setAttribute("src", iconElement);
-//         weatherIcon.innerHTML = "";
-//         weatherIcon.appendChild(imgElement);
-//         weatherIcon.innerHTML += `${temperature+1}°C`;
-//     });
-// }
-// });
+//?consumimos la api para el clima
 const apiKey = "8fb8a8f95983b6752acee95d7579284a";
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
 if (navigator.geolocation) {
@@ -560,7 +547,7 @@ $(document).ready(function() {
 });
 
 //?crear galeria
-const accessKey = '';
+const accessKey = 'yYLlIFJD0tBDuChjJvQpudRrXkc_i3OGd5n0WBIAtQM';
 
 const imgBuscar = 'estrategias';
 function gallery() {
